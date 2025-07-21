@@ -1,28 +1,31 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Supabase;
 using Portfolio.Web.Models;
+using Supabase;
 
-public class IndexModel : PageModel
+namespace Portfolio.Web.Pages
 {
-    private readonly Supabase.Client _supabase;
-
-    public List<DevLog> Logs { get; set; } = new();
-
-    public IndexModel(Supabase.Client supabase)
+    public class IndexModel : PageModel
     {
-        _supabase = supabase;
-    }
+        private readonly Supabase.Client _supabase;
 
-    public async Task OnGetAsync()
-    {
-        var response = await _supabase
-            .From<DevLog>()
-            .Order(x => x.Date, Supabase.Postgrest.Constants.Ordering.Descending)
-            .Limit(1)
-            .Get();
+        public List<DevLog> Logs { get; set; } = new();
 
-        Logs = response.Models;
+        public IndexModel(Supabase.Client supabase)
+        {
+            _supabase = supabase;
+        }
 
-        Console.WriteLine($"[DEVLOG] Fetched latest log for date: {Logs.FirstOrDefault()?.Date}");
+        public async Task OnGetAsync()
+        {
+            var response = await _supabase
+                .From<DevLog>()
+                .Order(x => x.Date, Supabase.Postgrest.Constants.Ordering.Descending)
+                .Limit(1)
+                .Get();
+
+            Logs = response.Models;
+
+            Console.WriteLine($"[DEVLOG] Fetched latest log for date: {Logs.FirstOrDefault()?.Date}");
+        }
     }
 }

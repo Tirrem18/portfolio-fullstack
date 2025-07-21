@@ -18,28 +18,35 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between w-100">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav gap-3">
                         <li class="nav-item">
-                            <a class="nav-link text-black" asp-page="/Index">Home</a>
+                            <a class="nav-link text-black @(ViewContext.RouteData.Values["page"].ToString() == "/Index" ? "active" : "fw-normal")"
+                               asp-page="/Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-black" asp-page="/Projects">Projects</a>
+                            <a class="nav-link text-black @(ViewContext.RouteData.Values["page"].ToString() == "/Projects/Index" ? "active" : "fw-normal")"
+                               asp-page="/Projects/Index">Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-black" asp-page="/DevLogs">Dev logs</a>
+                            <a class="nav-link text-black @(ViewContext.RouteData.Values["page"].ToString() == "/DevLogs/Index" ? "active" : "fw-normal")"
+                               asp-page="/DevLogs/Index">Dev logs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-black" asp-page="/Journey">Journey</a>
+                            <a class="nav-link text-black @(ViewContext.RouteData.Values["page"].ToString() == "/Journey/Index" ? "active" : "fw-normal")"
+                               asp-page="/Journey/Index">Journey</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-black" asp-page="/Contact">Contact Me</a>
+                            <a class="nav-link text-black @(ViewContext.RouteData.Values["page"].ToString() == "/Contact/Index" ? "active" : "fw-normal")"
+                               asp-page="/Contact/Index">Contact Me</a>
+
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+
     </header>
     <div class="container">
         <main role="main" class="pb-3">

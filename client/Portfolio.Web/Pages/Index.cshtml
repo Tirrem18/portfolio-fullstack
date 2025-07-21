@@ -1,5 +1,5 @@
 ﻿@page
-@model IndexModel
+@model Portfolio.Web.Pages.IndexModel
 @{
     ViewData["Title"] = "Home";
 }
@@ -7,6 +7,7 @@
 <!-- Section 1: I'm Jacob -->
 <section class="bg-gray-100 py-16 text-center">
     <div class="container mx-auto">
+        <!-- Placeholder avatar -->
         <div class="w-32 h-32 bg-gray-400 rounded-full mx-auto mb-4"></div>
 
         <h1 class="text-3xl font-bold">I'm Jacob</h1>
@@ -24,15 +25,23 @@
             [Short paragraph about dev logs]
         </p>
 
-        <div class="bg-gray-50 p-4 rounded shadow-md max-w-xl mx-auto">
-            <strong>@Model.Logs.FirstOrDefault()?.Date.ToString("yyyy-MM-dd")</strong> –
-            @Model.Logs.FirstOrDefault()?.Summary
-            <br />
-            <small class="text-gray-600">@Model.Logs.FirstOrDefault()?.Description</small>
-        </div>
+        @if (Model.Logs.Any())
+        {
+            var latestLog = Model.Logs.First();
+            <div class="bg-gray-50 p-4 rounded shadow-md max-w-xl mx-auto">
+                <strong>@latestLog.Date.ToString("yyyy-MM-dd")</strong> –
+                @latestLog.Summary
+                <br />
+                <small class="text-gray-600">@latestLog.Description</small>
+            </div>
+        }
+        else
+        {
+            <p class="text-gray-500">No dev logs available yet.</p>
+        }
 
         <div class="mt-4">
-            <a href="/devlog" class="text-blue-600 underline font-medium">View All DevLogs →</a>
+            <a href="/DevLogs" class="text-blue-600 underline font-medium">View All DevLogs →</a>
         </div>
     </div>
 </section>

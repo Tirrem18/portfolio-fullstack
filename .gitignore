@@ -53,7 +53,7 @@ tmp/
 **/wwwroot/js/
 **/wwwroot/css/
 !**/wwwroot/js/site.js
-!**/wwwroot/css/site.css
+
 
 # Publish
 publish/

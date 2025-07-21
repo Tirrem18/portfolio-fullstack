@@ -8,3 +8,15 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+<ul>
+    @foreach (var log in Model.Logs)
+    {
+        <li>
+            <strong>@log.Date.ToString("yyyy-MM-dd")</strong> – @log.Summary
+            <br />
+            <small>@log.Description</small>
+            <br />
+            Tags: @string.Join(", ", log.Tags)
+        </li>
+    }
+</ul>

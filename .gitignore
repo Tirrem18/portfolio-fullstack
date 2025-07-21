@@ -141,6 +141,9 @@ __pycache__/
 # Node.js
 node_modules/
 
+**/appsettings.Development.json
+appsettings.Development.json
+
 # Ignore local history, upgrade, etc.
 .localhistory/
 MigrationBackup/

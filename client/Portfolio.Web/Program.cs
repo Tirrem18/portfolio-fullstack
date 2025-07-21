@@ -1,7 +1,24 @@
+using Supabase;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+// Load Supabase config from appsettings
+var supabaseUrl = builder.Configuration["Supabase:Url"];
+var supabaseKey = builder.Configuration["Supabase:AnonKey"];
+
+Console.WriteLine("SUPABASE_URL = " + supabaseUrl);
+Console.WriteLine("SUPABASE_ANON_KEY = " + supabaseKey);
+
+var options = new SupabaseOptions
+{
+    AutoConnectRealtime = true
+};
+
+var supabase = new Supabase.Client(supabaseUrl, supabaseKey, options);
+await supabase.InitializeAsync();
 
 var app = builder.Build();
 
@@ -9,17 +26,15 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 
 app.UseRouting();
-
 app.UseAuthorization();
 
-app.MapStaticAssets();
 app.MapRazorPages()
    .WithStaticAssets();
 

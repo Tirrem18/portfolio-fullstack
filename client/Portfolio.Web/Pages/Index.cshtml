@@ -5,25 +5,34 @@
 }
 
 <section class="section-jacob" style="padding: 2rem 1rem;">
-    <div class="container-jacob" style="max-width: 1100px; margin: auto;">
-        <div class="jacob-grid" style="
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
+    <div class="container-jacob" style="max-width: 1280px; margin: auto;">
+        <div class="jacob-flex" style="
+      display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 1rem;
+      flex-wrap: wrap;
+      gap: clamp(0rem, 10vw, 8rem);
+      text-align: center;
     ">
-            <!-- Text: start at col 4, span 3 (4–6) -->
-            <div class="jacob-text" style="grid-column: 4 / span 3; text-align: center;">
-                <h1 style="margin: 0 0 0.2rem;">Jacob Merritt</h1>
-                <p style="margin: 0.2rem 0;">Software engineering graduate from teeside uni</p>
-                <p style="margin: 0.2rem 0;">Blah blah</p>
-                <p style="margin: 0.2rem 0;">My journey</p>
+            <!-- Text content -->
+            <div class="jacob-text" style="max-width: 400px;">
+                <h1 style="margin-bottom: 0.5rem;">Jacob Merritt</h1>
+                <p style="margin: 0.4rem 0;">
+                    Software engineering graduate from Teesside University.
+                </p>
+                <p style="margin: 0.4rem 0;">
+                    I’m passionate about building real-world apps and systems — from IoT safety tools and health trackers
+                    to cloud-native services and portfolio platforms.
+                </p>
+                <p style="margin: 0.4rem 0;">
+                    <a href="/Journey" style="color: #1a73e8; text-decoration: underline;">View my journey</a>
+                </p>
             </div>
 
-            <!-- Image: start at col 8, span 3 (8–10) -->
-            <div class="jacob-image" style="grid-column: 8 / span 3; text-align: center;">
-                <img src="/images/placeholder.jpg" alt="Jacob Profile"
-                     style="width: 200px; height: auto; border-radius: 50%; object-fit: cover;">
+            <!-- Profile Image -->
+            <div class="jacob-image">
+                <img src="/images/Jacob-Web-Photo.jpg" alt="Jacob Profile"
+                     style="width: 220px; height: auto; border-radius: 50%; object-fit: cover;">
             </div>
         </div>
     </div>
@@ -33,7 +42,7 @@
 
 
 
-<hr class="border-t border-gray-300" />
+
 
 <!-- Section 2: What I've Been Up To -->
 <section class="bg-white py-16 text-center">

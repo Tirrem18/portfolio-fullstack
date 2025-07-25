@@ -1,49 +1,57 @@
+﻿/* Base font size */
 html {
-  font-size: 14px;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
+/* Ensure page content doesn't overlap the bottom */
 body {
-  margin-bottom: 60px;
-}
-
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
-}
-
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
-}
-
-html, body {
+    margin-bottom: 60px;
     overflow-y: auto;
-    scrollbar-width: none;
+    scrollbar-width: none; /* Firefox: hide scrollbar */
 }
 
+    /* Hide scrollbar in WebKit (Chrome, Safari) */
     body::-webkit-scrollbar {
         display: none;
     }
 
+/* Focus styles for form elements and buttons */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+/* Floating label placeholders - right aligned */
+.form-floating > .form-control-plaintext::placeholder,
+.form-floating > .form-control::placeholder {
+    color: var(--bs-secondary-color);
+    text-align: end;
+}
+
+/* Focus state - placeholders aligned to left */
+.form-floating > .form-control-plaintext:focus::placeholder,
+.form-floating > .form-control:focus::placeholder {
+    text-align: start;
+}
+
+/* Active nav link styling */
 .nav-link.active {
     font-weight: bold;
     position: relative;
 }
 
+    /* Underline indicator for active nav link */
     .nav-link.active::after {
         content: "";
         position: absolute;
@@ -51,6 +59,209 @@ html, body {
         left: 0;
         width: 100%;
         height: 3px;
-        background-color: black;
+        background-color: white;
         border-radius: 2px;
     }
+
+/* Hero section container */
+.hero-wrapper {
+    position: relative;
+    height: 350px;
+    background-color: #18232d;
+    z-index: 0;
+}
+
+/* Side background fills outside the main content */
+.side-fill {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-color: #18232d;
+    z-index: 0;
+}
+
+/* Left fill width adapts to screen size */
+.left-fill {
+    left: 0;
+    width: calc((100% - 1200px) / 2);
+}
+
+/* Right fill, same as left */
+.right-fill {
+    right: 0;
+    width: calc((100% - 1200px) / 2);
+}
+
+/* Main content box centered inside hero */
+.center-box {
+    position: relative;
+    margin: 0 auto;
+    height: 100%;
+    max-width: 1200px;
+    z-index: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 0;
+    background-color: transparent;
+}
+
+/* Split layout inside the hero */
+.split-box {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Each split section shares space */
+.split-section {
+    flex: 1;
+    height: 100%;
+}
+
+    /* Left section (1/6 width) */
+    .split-section.left {
+        flex: 1;
+        background-color: #18232d;
+    }
+
+    /* Middle section (5/6 width) with curved left border */
+    .split-section.middle {
+        position: relative;
+        flex: 5;
+        background-color: #121824;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        overflow: hidden;
+    }
+
+    /* Right section (2/6 width) with curved right border */
+    .split-section.right {
+        flex: 2;
+        background-color: #18232d;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+    }
+
+/* Absolute hero image overlay */
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: calc(100% / 3 * 2); /* 2/3 into container */
+    transform: translateX(-50%);
+    width: auto;
+    height: 350px;
+    z-index: 2;
+    pointer-events: none; /* Prevent interaction */
+}
+
+    /* Ensure image fills the area and is rounded */
+    .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+    }
+
+/* Hide hero image on smaller screens */
+@media (max-width: 1185px) {
+    .hero-image {
+        display: none;
+    }
+}
+
+/* Wrapper for the hero intro text and buttons */
+.hero-intro-wrapper {
+    max-width: 700px;
+    padding-top: 3vh;
+    padding-left: 5vw;
+    padding-right: 2rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    z-index: 3;
+}
+
+/* Hero tagline styling */
+.hero-tagline {
+    font-size: 22px;
+    font-weight: 500;
+    color: #ccc;
+    max-width: 27vw;
+}
+
+/* Main headline */
+.hero-name {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Subheading/role description */
+.hero-roles {
+    font-size: 20px;
+    font-weight: 300;
+    color: #bbb;
+}
+
+/* Layout for hero action buttons */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Button base styles */
+.btn {
+    text-decoration: none;
+    padding: 15px 30px;
+    font-size: 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+/* Primary button (solid color) */
+.primary-btn {
+    background-color: #c15f3d;
+    color: white;
+}
+
+    .primary-btn:hover {
+        background-color: #d84a16;
+    }
+
+/* Secondary button (outlined) */
+.secondary-btn {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+    .secondary-btn:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+/* Responsive tweaks for hero intro on small screens */
+@media (max-width: 1185px) {
+    .hero-intro-wrapper {
+        align-items: center;
+        text-align: center;
+        padding-left: 3vw;
+        padding-right: 3vw;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-tagline {
+        max-width: 90vw; /* or remove entirely */
+        font-size: 18px;  /* optional: reduce size for better wrap */
+        text-align: center;
+    }
+
+
+}

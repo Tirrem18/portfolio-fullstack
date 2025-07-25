@@ -4,185 +4,33 @@
     ViewData["Title"] = "Home";
 }
 
-<section class="section-jacob" style="padding: 2rem 1rem;">
-    <div class="container-jacob" style="max-width: 1280px; margin: auto;">
-        <div class="jacob-flex" style="
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: clamp(0rem, 10vw, 8rem);
-      text-align: center;
-    ">
-            <!-- Text content -->
-            <div class="jacob-text" style="max-width: 400px;">
-                <h1 style="margin-bottom: 0.5rem;">Jacob Merritt</h1>
-                <p style="margin: 0.4rem 0;">
-                    Software engineering graduate from Teesside University.
-                </p>
-                <p style="margin: 0.4rem 0;">
-                    I’m passionate about building real-world apps and systems, from IoT safety tools and health trackers
-                    to cloud-native services and portfolio platforms.
-                </p>
-                <p style="margin: 0.4rem 0;">
-                    <a href="/Journey" style="color: #1a73e8; text-decoration: underline;">View my journey</a>
-                </p>
-            </div>
+@section FullWidth {
+    <div class="hero-wrapper">
+        <div class="side-fill left-fill"></div>
+        <div class="side-fill right-fill"></div>
 
-            <!-- Profile Image -->
-            <div class="jacob-image">
-                <img src="/images/Jacob-Web-Photo.jpg" alt="Jacob Profile"
-                     style="width: 220px; height: auto; border-radius: 50%; object-fit: cover;">
-            </div>
+        <div class="hero-image">
+            <img src="/images/Picture2.jpg" alt="Hero Image" />
         </div>
-    </div>
-</section>
 
+        <div class="center-box">
+            <div class="split-box">
+                <div class="split-section left"></div>
+                <div class="split-section middle">
+                    <div class="hero-intro-wrapper">
+                        <p class="hero-tagline">First-Class Software Engineering graduate with strong foundations and a passion for coding meaningful solutions</p>
+                        <h1 class="hero-name">Jacob Merritt</h1>
+                        <p class="hero-roles">Full Stack Developer | Recent Graduate</p>
 
-
-
-
-
-
-<section class="section-devlog" style="padding: 2rem 1rem;">
-    <div class="container-devlog" style="max-width: 1280px; margin: auto;">
-        <div class="devlog-flex" style="
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: clamp(0rem, 10vw, 8rem);
-      text-align: left;
-    ">
-            <!-- Latest Dev Log Card -->
-            @if (Model.Logs.Any())
-            {
-                var latestLog = Model.Logs.First();
-                var maxChars = 300;
-                var isLong = latestLog.Description?.Length > maxChars;
-                var shortDesc = isLong ? latestLog.Description.Substring(0, maxChars) + "…" : latestLog.Description;
-                var fullDescId = "full-desc";
-
-                <div class="latest-log" style="
-            background-color: #d9ecfd;
-            padding: 1.25rem 1rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            max-width: 400px;
-            flex: 1 1 300px;
-        ">
-                    <!-- Header Row -->
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span style="font-weight: 600; font-size: 1rem;">🔧 Latest Dev Log</span>
-                        <span style="font-weight: 600; font-size: 1rem;">@latestLog.Date.ToString("yyyy-MM-dd")</span>
+                        <div class="hero-buttons">
+                            <a href="/projects" class="btn primary-btn">View Projects</a>
+                            <a href="/devlogs" class="btn secondary-btn">Read Dev Log</a>
+                        </div>
                     </div>
-
-                    <!-- Divider -->
-                    <hr style="border: none; border-top: 1px solid #000; margin: 0.75rem 0;" />
-
-                    <!-- Summary -->
-                    <p style="margin: 0.5rem 0; font-size: 1rem; font-weight: 500; color: #1a1a1a;">
-                        @latestLog.Summary
-                    </p>
-
-                    <!-- Description -->
-                    <p id="@fullDescId" style="margin: 0; font-size: 0.85rem; color: #444;">
-                        @shortDesc
-                    </p>
-
-                    @if (isLong)
-                    {
-                        <p style="margin-top: 0.25rem;">
-                            <a href="javascript:void(0);"
-                               data-expanded="false"
-                               data-short="@shortDesc"
-                               data-full="@latestLog.Description"
-                               onclick="toggleDescription('@fullDescId', this)"
-                               style="color: #1a73e8; font-size: 0.85rem;">
-                                Read more
-                            </a>
-                        </p>
-                    }
-
-
                 </div>
-            }
-
-            else
-            {
-                <div class="latest-log" style="
-            background-color: #f0f0f0;
-            padding: 1.25rem 1rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            max-width: 400px;
-            flex: 1 1 300px;
-        ">
-                    <p style="margin: 0;">No dev logs available yet.</p>
-                </div>
-            }
-
-
-            <!-- What I've Been Up To -->
-            <div class="devlog-info" style="max-width: 400px; flex: 1 1 300px;">
-                <h3 style="margin-bottom: 1rem;">What I’ve been up to</h3>
-                <p style="color: #333;">
-                    blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
-                </p>
-                <p style="margin-top: 1rem;">
-                    <a href="/DevLogs" style="color: #1a73e8; text-decoration: underline;">View all dev logs →</a>
-                </p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-
-<hr class="border-t border-gray-300" />
-
-<!-- Section 3: Core Projects -->
-<section class="bg-gray-100 py-16 text-center">
-    <div class="container mx-auto">
-        <h2 class="text-2xl font-semibold mb-8">My Core Projects</h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <div class="bg-white p-4 rounded shadow-md">
-                <h3 class="text-xl font-bold">[Project Title]</h3>
-                <p class="text-gray-700 mt-2">[Short description]</p>
-                <div class="mt-4">
-                    <a href="#" class="text-blue-600 underline">View Project</a>
-                </div>
-            </div>
-
-            <div class="bg-white p-4 rounded shadow-md">
-                <h3 class="text-xl font-bold">[Project Title]</h3>
-                <p class="text-gray-700 mt-2">[Short description]</p>
-                <div class="mt-4">
-                    <a href="#" class="text-blue-600 underline">View Project</a>
-                </div>
+                <div class="split-section right"></div>
             </div>
         </div>
     </div>
-</section>
 
-
-<script>
-    function toggleDescription(id, linkEl) {
-        const para = document.getElementById(id);
-        const shortText = linkEl.dataset.short;
-        const fullText = linkEl.dataset.full;
-
-        if (linkEl.dataset.expanded === "true") {
-            para.innerText = shortText;
-            linkEl.innerText = "Read more";
-            linkEl.dataset.expanded = "false";
-        } else {
-            para.innerText = fullText;
-            linkEl.innerText = "Show less";
-            linkEl.dataset.expanded = "true";
-        }
-    }
-</script>
-
+}

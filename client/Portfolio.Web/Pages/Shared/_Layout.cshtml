@@ -11,45 +11,45 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm" style="background-color: #eaf5ff;">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm" style="background-color: #0c1319; padding: 0.4rem 2.5rem;">
             <div class="container">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between w-100">
-                    <ul class="navbar-nav gap-3">
+                    <ul class="navbar-nav gap-4">
                         <li class="nav-item">
-                            <a class="nav-link text-black @(ViewContext.RouteData.Values["page"]?.ToString() == "/Index" ? "active" : "fw-normal")"
+                            <a class="nav-link text-white @(ViewContext.RouteData.Values["page"]?.ToString() == "/Index" ? "active fw-bold" : "fw-normal")"
                                asp-page="/Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-black @(ViewContext.RouteData.Values["page"]?.ToString() == "/Projects/Index" ? "active" : "fw-normal")"
+                            <a class="nav-link text-white @(ViewContext.RouteData.Values["page"]?.ToString() == "/Projects/Index" ? "active fw-bold" : "fw-normal")"
                                asp-page="/Projects/Index">Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-black @(ViewContext.RouteData.Values["page"]?.ToString() == "/DevLogs/Index" ? "active" : "fw-normal")"
+                            <a class="nav-link text-white @(ViewContext.RouteData.Values["page"]?.ToString() == "/DevLogs/Index" ? "active fw-bold" : "fw-normal")"
                                asp-page="/DevLogs/Index">Dev logs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-black @(ViewContext.RouteData.Values["page"]?.ToString() == "/Journey/Index" ? "active" : "fw-normal")"
+                            <a class="nav-link text-white @(ViewContext.RouteData.Values["page"]?.ToString() == "/Journey/Index" ? "active fw-bold" : "fw-normal")"
                                asp-page="/Journey/Index">Journey</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-black @(ViewContext.RouteData.Values["page"]?.ToString() == "/Contact/Index" ? "active" : "fw-normal")"
+                            <a class="nav-link text-white @(ViewContext.RouteData.Values["page"]?.ToString() == "/Contact/Index" ? "active fw-bold" : "fw-normal")"
                                asp-page="/Contact/Index">Contact Me</a>
-
-
-
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-
     </header>
+
+    <!-- ✅ Full-width section goes OUTSIDE of container -->
+    @RenderSection("FullWidth", required: false)
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

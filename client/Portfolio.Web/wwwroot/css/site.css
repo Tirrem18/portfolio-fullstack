@@ -1,44 +1,54 @@
+﻿/*
+  GLOBAL STYLESHEET - PORTFOLIO
+  Now uses --view-height and --view-width for all viewport-based sizing.
+*/
+
+/* Root variables and base font size */
 html {
-  font-size: 14px;
+    font-size: 14px;
+    background-color: #18232d;
+    position: relative;
+    min-height: 100%;
+    scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
+/* General body styles */
 body {
-  margin-bottom: 60px;
-}
-
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
-}
-
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
-}
-
-html, body {
     overflow-y: auto;
-    scrollbar-width: none;
+    scrollbar-width: none; /* Firefox */
 }
 
     body::-webkit-scrollbar {
-        display: none;
+        display: none; /* Chrome, Safari */
     }
 
+/* Form/button focus styles */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+/* NAVIGATION BAR */
+nav.navbar {
+    height: calc(var(--view-height) * 5);
+    padding: 0;
+    background-color: #0c1319;
+}
+
+/* NAVIGATION ACTIVE STATE */
 .nav-link.active {
     font-weight: bold;
     position: relative;
@@ -51,6 +61,241 @@ html, body {
         left: 0;
         width: 100%;
         height: 3px;
-        background-color: black;
+        background-color: white;
         border-radius: 2px;
     }
+
+/* SECTION 1 - HERO SECTION */
+.hero-wrapper {
+    position: relative;
+    height: calc(var(--view-height) * 40);
+    background-color: #18232d;
+    z-index: 0;
+}
+
+/* Side background fillers */
+.side-fill {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-color: #18232d;
+    z-index: 0;
+}
+
+.left-fill {
+    left: 0;
+    width: calc((100% - 1200px) / 2);
+}
+
+.right-fill {
+    right: 0;
+    width: calc((100% - 1200px) / 2);
+}
+
+/* Center box within hero */
+.center-box {
+    position: relative;
+    margin: 0 auto;
+    height: 100%;
+    max-width: 1200px;
+    z-index: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+/* Split layout inside hero */
+.split-box {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.split-section {
+    flex: 1;
+    height: 100%;
+}
+
+    .split-section.left {
+        background-color: #18232d;
+    }
+
+    .split-section.middle {
+        position: relative;
+        flex: 5;
+        background-color: #121824;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        overflow: hidden;
+    }
+
+    .split-section.right {
+        flex: 2;
+        background-color: #18232d;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+    }
+
+/* Hero image placement */
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: calc(100% / 3 * 2);
+    transform: translateX(-50%);
+    width: auto;
+    height: calc(var(--view-height) * 40);
+    z-index: 2;
+    pointer-events: none;
+}
+
+    .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+    }
+
+/* Hero intro content */
+.hero-intro-wrapper {
+    max-width: 700px;
+    padding-top: calc(var(--view-height) * 3);
+    padding-left: clamp(1rem, calc(var(--view-width) * 5), 3rem);
+    padding-right: 6vw;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    z-index: 3;
+    gap: 0rem;
+}
+
+.hero-tagline {
+    font-size: calc(var(--view-width) * 1.23);
+    font-weight: 500;
+    color: #ccc;
+    max-width: calc(var(--view-width) * 25);
+}
+
+.hero-name {
+    font-size: calc(var(--view-width) * 2.6);
+    font-weight: 700;
+    margin: 0;
+     max-width: calc(var(--view-width) * 25);
+}
+
+.hero-roles {
+    font-size: calc(var(--view-width) * 1.02);
+    font-weight: 300;
+    color: #bbb;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: calc(var(--view-width) * 1);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* BUTTONS */
+.btn {
+    text-decoration: none;
+    padding: calc(var(--view-width) * 0.7) calc(var(--view-width) * 0.75);
+    font-size: calc(var(--view-width) * 1);
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.primary-btn {
+    background-color: #c15f3d;
+    color: white;
+}
+
+    .primary-btn:hover {
+        background-color: #d84a16;
+    }
+
+.secondary-btn {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+    .secondary-btn:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+
+/* SECTION 2 */
+.section-2-wrapper {
+    height: calc(var(--view-height) * 43);
+    width: 100%;
+    background-color: #f4ede3;
+}
+
+.section-2-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #0c1319;
+    margin-bottom: 1rem;
+}
+
+.section-2-projects {
+    position: relative;
+    height: calc(100% - 80px);
+    width: 100%;
+}
+
+.project-card {
+    position: absolute;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 250px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1360px) {
+    .section-2-projects .project-card:nth-child(2) {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .section-2-projects .project-card:nth-child(3) {
+        display: none;
+    }
+}
+
+/* SECTION 3 */
+.section-3-wrapper {
+    height: calc(var(--view-height) * 12);
+    width: 100%;
+    background-color: #18232d;
+}
+
+.section-3-box {
+    position: relative;
+    height: 85%;
+    width: calc(var(--view-width) * 15);
+    background-color: #121824;
+    border-radius: 25px;
+    margin-left: 25%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Floating label form placeholder tweaks */
+.form-floating > .form-control-plaintext::placeholder,
+.form-floating > .form-control::placeholder {
+    color: var(--bs-secondary-color);
+    text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder,
+.form-floating > .form-control:focus::placeholder {
+    text-align: start;
+}

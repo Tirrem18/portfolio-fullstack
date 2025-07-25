@@ -6,8 +6,14 @@
 /* Root variables and base font size */
 html {
     font-size: 14px;
+    background-color: #18232d;
     position: relative;
     min-height: 100%;
+    scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
 }
 
 @media (min-width: 768px) {
@@ -59,7 +65,7 @@ nav.navbar {
         border-radius: 2px;
     }
 
-/* HERO SECTION */
+/* SECTION 1 - HERO SECTION */
 .hero-wrapper {
     position: relative;
     height: calc(var(--view-height) * 40);
@@ -149,48 +155,44 @@ nav.navbar {
         border-radius: 16px;
     }
 
-@media (max-width: 1185px) {
-    .hero-image {
-        display: none;
-    }
-}
-
 /* Hero intro content */
 .hero-intro-wrapper {
     max-width: 700px;
     padding-top: calc(var(--view-height) * 3);
-    padding-left: calc(var(--view-width) * 5);
-    padding-right: 2rem;
+    padding-left: clamp(1rem, calc(var(--view-width) * 5), 3rem);
+    padding-right: 6vw;
     color: white;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
     z-index: 3;
+    gap: 0rem;
 }
 
 .hero-tagline {
-    font-size: calc(var(--view-width) * 1.6);
+    font-size: calc(var(--view-width) * 1.23);
     font-weight: 500;
     color: #ccc;
-    max-width: calc(var(--view-width) * 27);
+    max-width: calc(var(--view-width) * 25);
 }
 
 .hero-name {
-    font-size: calc(var(--view-width) * 3.2);
+    font-size: calc(var(--view-width) * 2.6);
     font-weight: 700;
     margin: 0;
+     max-width: calc(var(--view-width) * 25);
 }
 
 .hero-roles {
-    font-size: calc(var(--view-width) * 1.4);
+    font-size: calc(var(--view-width) * 1.02);
     font-weight: 300;
     color: #bbb;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 1rem;
+    gap: calc(var(--view-width) * 1);
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -198,8 +200,8 @@ nav.navbar {
 /* BUTTONS */
 .btn {
     text-decoration: none;
-    padding: 15px 30px;
-    font-size: 15px;
+    padding: calc(var(--view-width) * 0.7) calc(var(--view-width) * 0.75);
+    font-size: calc(var(--view-width) * 1);
     border-radius: 8px;
     font-weight: 500;
     transition: background 0.3s ease;
@@ -224,25 +226,6 @@ nav.navbar {
         background-color: rgba(255, 255, 255, 0.1);
     }
 
-/* Responsive adjustments */
-@media (max-width: 1185px) {
-    .hero-intro-wrapper {
-        align-items: center;
-        text-align: center;
-        padding-left: 3vw;
-        padding-right: 3vw;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .hero-tagline {
-        max-width: 90vw;
-        font-size: 18px;
-        text-align: center;
-    }
-}
 
 /* SECTION 2 */
 .section-2-wrapper {

@@ -51,7 +51,6 @@ tmp/
 # wwwroot (scaffolded libraries)
 **/wwwroot/lib/
 **/wwwroot/js/
-**/wwwroot/css/
 !**/wwwroot/js/site.js
 
 

@@ -2,6 +2,7 @@
   GLOBAL STYLESHEET - PORTFOLIO
   Now uses --view-height and --view-width for all viewport-based sizing.
 */
+@import url('./Index/hero.css');
 
 /* Root variables and base font size */
 html {
@@ -9,28 +10,34 @@ html {
     background-color: #18232d;
     position: relative;
     min-height: 100%;
-    scrollbar-width: none; /* Firefox */
+   
 }
 
-body::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Edge */
+/* Custom scrollbar for WebKit browsers */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
 }
+
+::-webkit-scrollbar-track {
+    background: #121824; /* Track background (dark) */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3a3f47; /* Scrollbar handle (mid-dark grey) */
+    border-radius: 6px;
+    border: 2px solid #121824; /* Optional: padding inside track */
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #555b65; /* Slightly lighter on hover */
+    }
 
 @media (min-width: 768px) {
     html {
         font-size: 16px;
     }
 }
-
-/* General body styles */
-body {
-    overflow-y: auto;
-    scrollbar-width: none; /* Firefox */
-}
-
-    body::-webkit-scrollbar {
-        display: none; /* Chrome, Safari */
-    }
 
 /* Form/button focus styles */
 .btn:focus,
@@ -65,122 +72,7 @@ nav.navbar {
         border-radius: 2px;
     }
 
-/* SECTION 1 - HERO SECTION */
-.hero-wrapper {
-    position: relative;
-    height: calc(var(--view-height) * 40);
-    background-color: #18232d;
-    z-index: 0;
-}
 
-
-/* Center box within hero */
-.center-box {
-    position: relative;
-    margin: 0 auto;
-    height: 100%;
-    max-width: 1200px;
-    z-index: 1;
-    border-radius: 16px;
-    overflow: hidden;
-    background-color: transparent;
-}
-
-/* Split layout inside hero */
-.split-box {
-    display: flex;
-    width: 100%;
-    height: 100%;
-}
-
-/* Core content sections */
-.split-section {
-    height: 100%;
-}
-
-    .split-section.side-filler {
-        flex: 0.5;
-        background-color: #18232d; /* Same as hero-wrapper */
-    }
-
-
-    .split-section.middle {
-        flex: 2;
-        background-color: #121824;
-        border-top-left-radius: 25px;
-        border-bottom-left-radius: 25px;
-        overflow: hidden;
-        position: relative;
-    }
-
-    .split-section.image {
-        flex: 1;
-        background-color: #121824;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end; /* 👈 This glues the image to the far right */
-        padding-right: 0;
-        border-top-right-radius: 25px;
-        border-bottom-right-radius: 25px;
-    }
-
-/* Hero image inside image section */
-.hero-image {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    pointer-events: none;
-}
-
-    .hero-image img {
-        height: 100%;
-        width: auto;
-        object-fit: cover;
-        border-radius: 0 16px 16px 0; /* Rounded corners only on the left side */
-    }
-
-
-/* Hero intro content */
-.hero-intro-wrapper {
-    max-width: 700px;
-    padding-top: calc(var(--view-height) * 3);
-    padding-left: clamp(1rem, calc(var(--view-width) * 5), 3rem);
-
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    z-index: 3;
-    gap: 0rem;
-}
-
-.hero-tagline {
-    font-size: clamp(0.6rem, calc(var(--view-width) * 1.23), 3.2rem);
-    font-weight: 500;
-    color: #ccc;
-}
-
-.hero-name {
-    font-size: clamp(1.9rem, calc(var(--view-width) * 2.6), 3.2rem);
-    font-weight: 700;
-    margin: 0;
-    max-width: calc(var(--view-width) * 25);
-}
-
-.hero-roles {
-    font-size: clamp(0.74rem, calc(var(--view-width) * 1.02), 3.2rem);
-    font-weight: 300;
-    color: #bbb;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: calc(var(--view-width) * 1);
-    flex-wrap: wrap;
-    justify-content: center;
-}
 
 /* BUTTONS */
 .btn {
@@ -216,7 +108,7 @@ nav.navbar {
 
 /* SECTION 2 */
 .section-2-wrapper {
-    height: calc(var(--view-height) * 43);
+    height: calc(var(--view-height) * 50);
     width: 100%;
     background-color: #f4ede3;
 }
@@ -240,7 +132,7 @@ nav.navbar {
     position: absolute;
     transform: translateX(-50%);
     width: 20vw;
-    height: 32vh;
+    height: 40vh;
     background-color: #F9F6F1;
     border-radius: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -260,30 +152,58 @@ nav.navbar {
 
 /* SECTION 3 */
 .section-3-wrapper {
-    height: calc(var(--view-height) * 12);
-    width: 100%;
+    min-height: calc(var(--view-height) * 15);
     background-color: #18232d;
+    padding-top: calc(var(--view-height) * 5);
+    scroll-margin-top: calc(var(--view-height) * 5);
+    padding-bottom: calc(var(--view-height) * 5);
 }
 
-.section-3-box {
-    position: relative;
-    height: 85%;
-    width: calc(var(--view-width) * 15);
-    background-color: #121824;
-    border-radius: 25px;
-    margin-left: 25%;
-    top: 50%;
-    transform: translateY(-50%);
+.section-3 .split-box {
+    display: flex;
+    width: 100%;
+    height: 100%;
 }
 
-/* Floating label form placeholder tweaks */
-.form-floating > .form-control-plaintext::placeholder,
-.form-floating > .form-control::placeholder {
-    color: var(--bs-secondary-color);
-    text-align: end;
+.section-3 .split-section.middle {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+    .section-3 .split-section.middle {
+        flex: 2;
+        background-color: #121824;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;S
+        padding: clamp(1rem, calc(var(--view-width) * 4), 3rem);
+        color: #121824;
+    }
+
+    .section-3 .split-section.box {
+        flex: 1;
+        background-color: #c15f3d; /* Your orange */
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: clamp(1rem, calc(var(--view-width) * 2), 2rem);
+        color: #fff;
+    }
+
+.devlog-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    font-size: clamp(0.9rem, calc(var(--view-width) * 1), 1.2rem);
+    font-weight: 400;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder,
-.form-floating > .form-control:focus::placeholder {
-    text-align: start;
-}
+    .devlog-entry .label {
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.85em;
+        opacity: 0.9;
+    }

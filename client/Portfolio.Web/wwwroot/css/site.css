@@ -73,24 +73,6 @@ nav.navbar {
     z-index: 0;
 }
 
-/* Side background fillers */
-.side-fill {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    background-color: #18232d;
-    z-index: 0;
-}
-
-.left-fill {
-    left: 0;
-    width: calc((100% - 1200px) / 2);
-}
-
-.right-fill {
-    right: 0;
-    width: calc((100% - 1200px) / 2);
-}
 
 /* Center box within hero */
 .center-box {
@@ -111,56 +93,60 @@ nav.navbar {
     height: 100%;
 }
 
+/* Core content sections */
 .split-section {
-    flex: 1;
     height: 100%;
 }
 
-    .split-section.left {
-        background-color: #18232d;
+    .split-section.side-filler {
+        flex: 0.5;
+        background-color: #18232d; /* Same as hero-wrapper */
     }
 
+
     .split-section.middle {
-        position: relative;
-        flex: 5;
+        flex: 2;
         background-color: #121824;
         border-top-left-radius: 25px;
         border-bottom-left-radius: 25px;
         overflow: hidden;
+        position: relative;
     }
 
-    .split-section.right {
-        flex: 2;
-        background-color: #18232d;
+    .split-section.image {
+        flex: 1;
+        background-color: #121824;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* 👈 This glues the image to the far right */
+        padding-right: 0;
         border-top-right-radius: 25px;
         border-bottom-right-radius: 25px;
     }
 
-/* Hero image placement */
+/* Hero image inside image section */
 .hero-image {
-    position: absolute;
-    top: 0;
-    left: calc(100% / 3 * 2);
-    transform: translateX(-50%);
-    width: auto;
-    height: calc(var(--view-height) * 40);
-    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     pointer-events: none;
 }
 
     .hero-image img {
-        width: 100%;
         height: 100%;
+        width: auto;
         object-fit: cover;
-        border-radius: 16px;
+        border-radius: 0 16px 16px 0; /* Rounded corners only on the left side */
     }
+
 
 /* Hero intro content */
 .hero-intro-wrapper {
     max-width: 700px;
     padding-top: calc(var(--view-height) * 3);
     padding-left: clamp(1rem, calc(var(--view-width) * 5), 3rem);
-    padding-right: 6vw;
+
     color: white;
     display: flex;
     flex-direction: column;
@@ -171,21 +157,20 @@ nav.navbar {
 }
 
 .hero-tagline {
-    font-size: calc(var(--view-width) * 1.23);
+    font-size: clamp(0.6rem, calc(var(--view-width) * 1.23), 3.2rem);
     font-weight: 500;
     color: #ccc;
-    max-width: calc(var(--view-width) * 25);
 }
 
 .hero-name {
-    font-size: calc(var(--view-width) * 2.6);
+    font-size: clamp(1.9rem, calc(var(--view-width) * 2.6), 3.2rem);
     font-weight: 700;
     margin: 0;
-     max-width: calc(var(--view-width) * 25);
+    max-width: calc(var(--view-width) * 25);
 }
 
 .hero-roles {
-    font-size: calc(var(--view-width) * 1.02);
+    font-size: clamp(0.74rem, calc(var(--view-width) * 1.02), 3.2rem);
     font-weight: 300;
     color: #bbb;
 }
@@ -200,8 +185,10 @@ nav.navbar {
 /* BUTTONS */
 .btn {
     text-decoration: none;
-    padding: calc(var(--view-width) * 0.7) calc(var(--view-width) * 0.75);
-    font-size: calc(var(--view-width) * 1);
+    /* Clamp padding: top/bottom, left/right */
+    padding: clamp(0.3rem, calc(var(--view-width) * 0.7), 0.8rem) clamp(0.6rem, calc(var(--view-width) * 0.75), 1.2rem);
+    /* Clamp font size */
+    font-size: clamp(0.76rem, calc(var(--view-width) * 1), 1.25rem);
     border-radius: 8px;
     font-weight: 500;
     transition: background 0.3s ease;
@@ -240,6 +227,7 @@ nav.navbar {
     font-weight: 600;
     color: #0c1319;
     margin-bottom: 1rem;
+   
 }
 
 .section-2-projects {

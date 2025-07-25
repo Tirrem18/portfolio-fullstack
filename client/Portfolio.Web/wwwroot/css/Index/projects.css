@@ -1,6 +1,56 @@
-﻿namespace Portfolio.Web.wwwroot.css.Index
-{
-    public class hero
-    {
+﻿/* SECTION 2 - PROJECTS */
+
+.section-2-wrapper {
+    height: calc(var(--view-height) * 50);
+    width: 100%;
+    background-color: #f4ede3;
+}
+
+/* Section title styling */
+.section-2-title {
+    text-align: center;
+    font-size: clamp(1.5rem, calc(var(--view-width) * 1.23), 3.2rem);
+    font-weight: 600;
+    color: #0c1319;
+}
+
+/* Project container: inline layout, no wrapping */
+.section-2-projects {
+    display: flex;
+    flex-wrap: nowrap; /* ❗ Prevent wrapping to next row */
+    justify-content: center; /* Center cards */
+    align-items: stretch; /* Match heights */
+    gap: clamp(1rem, calc(var(--view-width) * 2), 2rem); /* Responsive spacing between cards */
+    padding: 0 clamp(1rem, calc(var(--view-width) * 10), 15rem); /* Horizontal padding */
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden; /* ❗ Hide cards that don't fit */
+}
+
+/* Each project card */
+.project-card {
+    flex: 0 0 calc(33.333% - 2rem); /* Approx. 3 cards per row, minus gap */
+    min-width: 240px;
+    height: 40vh;
+    background-color: #F9F6F1;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    margin-bottom: 2rem; /* Add space below cards */
+    display: block; /* Default: show all cards */
+}
+
+/* 📉 Medium screens: Hide the 3rd card */
+@media (max-width: 1200px) {
+    .project-card:nth-child(3) {
+        display: none;
+    }
+}
+
+/* 📱 Small screens: Only show 1st card */
+@media (max-width: 700px) {
+    .project-card:nth-child(2),
+    .project-card:nth-child(3) {
+        display: none;
     }
 }

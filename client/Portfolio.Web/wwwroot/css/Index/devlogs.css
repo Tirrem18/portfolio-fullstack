@@ -1,6 +1,59 @@
-﻿namespace Portfolio.Web.wwwroot.css.Index
-{
-    public class hero
-    {
-    }
+﻿
+/* SECTION 3 */
+.section-3-wrapper {
+    min-height: calc(var(--view-height) * 15);
+    background-color: #18232d;
+    padding-top: calc(var(--view-height) * 5);
+    scroll-margin-top: calc(var(--view-height) * 5);
+    padding-bottom: calc(var(--view-height) * 5);
 }
+
+.section-3 .split-box {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.section-3 .split-section.middle {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.section-3 .split-section.middle {
+    flex: 2;
+    background-color: #121824;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    S padding: clamp(1rem, calc(var(--view-width) * 4), 3rem);
+    color: #121824;
+}
+
+.section-3 .split-section.box {
+    flex: 1;
+    background-color: #c15f3d; /* Your orange */
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(1rem, calc(var(--view-width) * 2), 2rem);
+    color: #fff;
+}
+
+.devlog-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    font-size: clamp(0.9rem, calc(var(--view-width) * 1), 1.2rem);
+    font-weight: 400;
+}
+
+    .devlog-entry .label {
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.85em;
+        opacity: 0.9;
+    }

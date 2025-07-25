@@ -1,4 +1,9 @@
-﻿/* Base font size */
+﻿/*
+  GLOBAL STYLESHEET - PORTFOLIO
+  Now uses --view-height and --view-width for all viewport-based sizing.
+*/
+
+/* Root variables and base font size */
 html {
     font-size: 14px;
     position: relative;
@@ -11,19 +16,17 @@ html {
     }
 }
 
-/* Ensure page content doesn't overlap the bottom */
+/* General body styles */
 body {
-    margin-bottom: 60px;
     overflow-y: auto;
-    scrollbar-width: none; /* Firefox: hide scrollbar */
+    scrollbar-width: none; /* Firefox */
 }
 
-    /* Hide scrollbar in WebKit (Chrome, Safari) */
     body::-webkit-scrollbar {
-        display: none;
+        display: none; /* Chrome, Safari */
     }
 
-/* Focus styles for form elements and buttons */
+/* Form/button focus styles */
 .btn:focus,
 .btn:active:focus,
 .btn-link.nav-link:focus,
@@ -32,26 +35,19 @@ body {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-/* Floating label placeholders - right aligned */
-.form-floating > .form-control-plaintext::placeholder,
-.form-floating > .form-control::placeholder {
-    color: var(--bs-secondary-color);
-    text-align: end;
+/* NAVIGATION BAR */
+nav.navbar {
+    height: calc(var(--view-height) * 5);
+    padding: 0;
+    background-color: #0c1319;
 }
 
-/* Focus state - placeholders aligned to left */
-.form-floating > .form-control-plaintext:focus::placeholder,
-.form-floating > .form-control:focus::placeholder {
-    text-align: start;
-}
-
-/* Active nav link styling */
+/* NAVIGATION ACTIVE STATE */
 .nav-link.active {
     font-weight: bold;
     position: relative;
 }
 
-    /* Underline indicator for active nav link */
     .nav-link.active::after {
         content: "";
         position: absolute;
@@ -63,15 +59,15 @@ body {
         border-radius: 2px;
     }
 
-/* Hero section container */
+/* HERO SECTION */
 .hero-wrapper {
     position: relative;
-    height: 350px;
+    height: calc(var(--view-height) * 40);
     background-color: #18232d;
     z-index: 0;
 }
 
-/* Side background fills outside the main content */
+/* Side background fillers */
 .side-fill {
     position: absolute;
     top: 0;
@@ -80,19 +76,17 @@ body {
     z-index: 0;
 }
 
-/* Left fill width adapts to screen size */
 .left-fill {
     left: 0;
     width: calc((100% - 1200px) / 2);
 }
 
-/* Right fill, same as left */
 .right-fill {
     right: 0;
     width: calc((100% - 1200px) / 2);
 }
 
-/* Main content box centered inside hero */
+/* Center box within hero */
 .center-box {
     position: relative;
     margin: 0 auto;
@@ -101,30 +95,25 @@ body {
     z-index: 1;
     border-radius: 16px;
     overflow: hidden;
-    padding: 0;
     background-color: transparent;
 }
 
-/* Split layout inside the hero */
+/* Split layout inside hero */
 .split-box {
     display: flex;
     width: 100%;
     height: 100%;
 }
 
-/* Each split section shares space */
 .split-section {
     flex: 1;
     height: 100%;
 }
 
-    /* Left section (1/6 width) */
     .split-section.left {
-        flex: 1;
         background-color: #18232d;
     }
 
-    /* Middle section (5/6 width) with curved left border */
     .split-section.middle {
         position: relative;
         flex: 5;
@@ -134,7 +123,6 @@ body {
         overflow: hidden;
     }
 
-    /* Right section (2/6 width) with curved right border */
     .split-section.right {
         flex: 2;
         background-color: #18232d;
@@ -142,19 +130,18 @@ body {
         border-bottom-right-radius: 25px;
     }
 
-/* Absolute hero image overlay */
+/* Hero image placement */
 .hero-image {
     position: absolute;
     top: 0;
-    left: calc(100% / 3 * 2); /* 2/3 into container */
+    left: calc(100% / 3 * 2);
     transform: translateX(-50%);
     width: auto;
-    height: 350px;
+    height: calc(var(--view-height) * 40);
     z-index: 2;
-    pointer-events: none; /* Prevent interaction */
+    pointer-events: none;
 }
 
-    /* Ensure image fills the area and is rounded */
     .hero-image img {
         width: 100%;
         height: 100%;
@@ -162,18 +149,17 @@ body {
         border-radius: 16px;
     }
 
-/* Hide hero image on smaller screens */
 @media (max-width: 1185px) {
     .hero-image {
         display: none;
     }
 }
 
-/* Wrapper for the hero intro text and buttons */
+/* Hero intro content */
 .hero-intro-wrapper {
     max-width: 700px;
-    padding-top: 3vh;
-    padding-left: 5vw;
+    padding-top: calc(var(--view-height) * 3);
+    padding-left: calc(var(--view-width) * 5);
     padding-right: 2rem;
     color: white;
     display: flex;
@@ -183,29 +169,25 @@ body {
     z-index: 3;
 }
 
-/* Hero tagline styling */
 .hero-tagline {
-    font-size: 22px;
+    font-size: calc(var(--view-width) * 1.6);
     font-weight: 500;
     color: #ccc;
-    max-width: 27vw;
+    max-width: calc(var(--view-width) * 27);
 }
 
-/* Main headline */
 .hero-name {
-    font-size: 3.2rem;
+    font-size: calc(var(--view-width) * 3.2);
     font-weight: 700;
     margin: 0;
 }
 
-/* Subheading/role description */
 .hero-roles {
-    font-size: 20px;
+    font-size: calc(var(--view-width) * 1.4);
     font-weight: 300;
     color: #bbb;
 }
 
-/* Layout for hero action buttons */
 .hero-buttons {
     display: flex;
     gap: 1rem;
@@ -213,7 +195,7 @@ body {
     justify-content: center;
 }
 
-/* Button base styles */
+/* BUTTONS */
 .btn {
     text-decoration: none;
     padding: 15px 30px;
@@ -223,7 +205,6 @@ body {
     transition: background 0.3s ease;
 }
 
-/* Primary button (solid color) */
 .primary-btn {
     background-color: #c15f3d;
     color: white;
@@ -233,7 +214,6 @@ body {
         background-color: #d84a16;
     }
 
-/* Secondary button (outlined) */
 .secondary-btn {
     background-color: transparent;
     border: 2px solid white;
@@ -244,7 +224,7 @@ body {
         background-color: rgba(255, 255, 255, 0.1);
     }
 
-/* Responsive tweaks for hero intro on small screens */
+/* Responsive adjustments */
 @media (max-width: 1185px) {
     .hero-intro-wrapper {
         align-items: center;
@@ -258,10 +238,81 @@ body {
     }
 
     .hero-tagline {
-        max-width: 90vw; /* or remove entirely */
-        font-size: 18px;  /* optional: reduce size for better wrap */
+        max-width: 90vw;
+        font-size: 18px;
         text-align: center;
     }
+}
 
+/* SECTION 2 */
+.section-2-wrapper {
+    height: calc(var(--view-height) * 43);
+    width: 100%;
+    background-color: #f4ede3;
+}
 
+.section-2-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #0c1319;
+    margin-bottom: 1rem;
+}
+
+.section-2-projects {
+    position: relative;
+    height: calc(100% - 80px);
+    width: 100%;
+}
+
+.project-card {
+    position: absolute;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 250px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1360px) {
+    .section-2-projects .project-card:nth-child(2) {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .section-2-projects .project-card:nth-child(3) {
+        display: none;
+    }
+}
+
+/* SECTION 3 */
+.section-3-wrapper {
+    height: calc(var(--view-height) * 12);
+    width: 100%;
+    background-color: #18232d;
+}
+
+.section-3-box {
+    position: relative;
+    height: 85%;
+    width: calc(var(--view-width) * 15);
+    background-color: #121824;
+    border-radius: 25px;
+    margin-left: 25%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Floating label form placeholder tweaks */
+.form-floating > .form-control-plaintext::placeholder,
+.form-floating > .form-control::placeholder {
+    color: var(--bs-secondary-color);
+    text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder,
+.form-floating > .form-control:focus::placeholder {
+    text-align: start;
 }

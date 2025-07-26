@@ -13,7 +13,7 @@ namespace Portfolio.Web.Pages
         private readonly Supabase.Client _supabase;
 
         public List<DevLog> Logs { get; set; } = new();
-        public List<Project> Projects { get; set; } = new(); // ✅ Add this
+        public List<Project> Projects { get; set; } = new();
 
         public IndexModel(Supabase.Client supabase)
         {
@@ -41,15 +41,15 @@ namespace Portfolio.Web.Pages
                     Description = "AI-Powered Smart Collar with Real-Time Multi-Sensor Fusion for Outdoor Cat Safety",
                     Technologies = new[] { "Python", "Streamlit", "Azure", "MQTT", "WebSocket" },
                     ImagePath = "/images/IoT.jpg",
-                    Link = "/projects/test"
+                    Link = "/projects/PetGuardian"
                 },
                 new Project
                {
-                    Title = "IoT",
-                    Description = "Multi Sensor, AI Pet Saftey Project",
-                    Technologies = new[] { "Python", "TypeScript", "WebSocket" },
-                    ImagePath = "/images/Picture2.jpg",
-                    Link = "/projects/test"
+                    Title = "GlucoHub (Mobile)",
+                    Description = "Gamified Mobile App for Diabetes Management with Habit Tracking and Glucose Visualization",
+                    Technologies = new[] { "Kotlin", "Firebase", "MVVM", "XML", "Android Studio" },
+                    ImagePath = "/images/Diabitiesdarker.jpg",
+                    Link = "/projects/glucohub"
                 },
                 new Project
                 {

@@ -38,13 +38,28 @@
 
     <!-- Section 2 - Full Width Block -->
     <div class="section-2-wrapper">
-        <h2 class="section-2-title">Core Projects</h2>
-        <div class="section-2-projects">
-            <div class="project-card" style="left: 27.5%;"></div>
-            <div class="project-card" style="left: 50%;"></div>
-            <div class="project-card" style="left: 72.5%;"></div>
+        <div class="section-2-inner">
+            <h2 class="section-2-title">Core Projects</h2>
+            <div class="section-2-projects">
+                @foreach (var project in Model.Projects)
+                {
+                    <div class="project-card">
+                        <img src="@project.ImagePath" alt="@project.Title image" class="project-image" />
+                        <h3 class="project-title">@project.Title</h3>
+                        <p class="project-desc">@project.Description</p>
+                        <div class="tech-tags">
+                            @foreach (var tech in project.Technologies)
+                            {
+                                <span class="tag">@tech</span>
+                            }
+                        </div>
+                        <a href="@project.Link" class="project-link">Learn More</a>
+                    </div>
+                }
+            </div>
         </div>
     </div>
+
 
     <div class="section-3-wrapper section-3">
         <div class="center-box">

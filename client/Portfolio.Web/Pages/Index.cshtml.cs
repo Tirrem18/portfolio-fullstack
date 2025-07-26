@@ -1,6 +1,10 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Portfolio.Web.Models;
+using Portfolio.Web.Pages.Models;
 using Supabase;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Portfolio.Web.Pages
 {
@@ -9,6 +13,7 @@ namespace Portfolio.Web.Pages
         private readonly Supabase.Client _supabase;
 
         public List<DevLog> Logs { get; set; } = new();
+        public List<Project> Projects { get; set; } = new(); // ✅ Add this
 
         public IndexModel(Supabase.Client supabase)
         {
@@ -17,6 +22,7 @@ namespace Portfolio.Web.Pages
 
         public async Task OnGetAsync()
         {
+            // ✅ Fetch latest DevLog
             var response = await _supabase
                 .From<DevLog>()
                 .Order(x => x.Date, Supabase.Postgrest.Constants.Ordering.Descending)
@@ -24,8 +30,36 @@ namespace Portfolio.Web.Pages
                 .Get();
 
             Logs = response.Models;
-
             Console.WriteLine($"[DEVLOG] Fetched latest log for date: {Logs.FirstOrDefault()?.Date}");
+
+       
+            Projects = new List<Project>
+            {
+                new Project
+                {
+                    Title = "Pet Guardian (IoT)",
+                    Description = "AI-Powered Smart Collar with Real-Time Multi-Sensor Fusion for Outdoor Cat Safety",
+                    Technologies = new[] { "Python", "Streamlit", "Azure", "MQTT", "WebSocket" },
+                    ImagePath = "/images/IoT.jpg",
+                    Link = "/projects/test"
+                },
+                new Project
+               {
+                    Title = "IoT",
+                    Description = "Multi Sensor, AI Pet Saftey Project",
+                    Technologies = new[] { "Python", "TypeScript", "WebSocket" },
+                    ImagePath = "/images/Picture2.jpg",
+                    Link = "/projects/test"
+                },
+                new Project
+                {
+                    Title = "IoT",
+                    Description = "Multi Sensor, AI Pet Saftey Project",
+                    Technologies = new[] { "Python", "TypeScript", "WebSocket" },
+                    ImagePath = "/images/Picture2.jpg",
+                    Link = "/projects/test"
+                },
+            };
         }
     }
 }

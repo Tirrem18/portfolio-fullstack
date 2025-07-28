@@ -27,7 +27,8 @@
 
                 <div class="split-section image">
                     <div class="hero-image">
-                        <img src="/images/PicDarkOrange.jpg" alt="Hero Image" />
+                        <img id="heroFace" src="/images/PicDarkOrange.jpg" alt="Hero Image" />
+
                     </div>
                 </div>
 
@@ -93,5 +94,20 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const imageSection = document.querySelector('.split-section.image');
+        const heroImage = document.getElementById('heroFace');
+
+        imageSection.addEventListener('mouseenter', () => {
+            heroImage.src = '/images/LightOrange.jpg'; 
+        });
+
+        imageSection.addEventListener('mouseleave', () => {
+            heroImage.src = '/images/PicDarkOrange.jpg'; 
+        });
+    </script>
+
+
 
 }

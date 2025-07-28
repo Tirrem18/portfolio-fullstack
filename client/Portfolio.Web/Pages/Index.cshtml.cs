@@ -53,11 +53,11 @@ namespace Portfolio.Web.Pages
                 },
                 new Project
                 {
-                    Title = "IoT",
-                    Description = "Multi Sensor, AI Pet Saftey Project",
-                    Technologies = new[] { "Python", "TypeScript", "WebSocket" },
-                    ImagePath = "/images/Picture2.jpg",
-                    Link = "/projects/test"
+                    Title = "ThAmCo Cloud System (DevOps)",
+                    Description = "Azure-Hosted Distributed System with Secure APIs, Fault Tolerance, and CI/CD Pipeline for Online Product Ordering",
+                    Technologies = new[] { "ASP.NET Core", "EF", "JWT", "Azure", "GitHub Actions"},
+                    ImagePath = "/images/ThAmCo.jpg",
+                    Link = "/projects/thamco"
                 },
             };
         }

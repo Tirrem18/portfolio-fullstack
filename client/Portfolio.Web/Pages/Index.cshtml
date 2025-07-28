@@ -99,14 +99,24 @@
         const imageSection = document.querySelector('.split-section.image');
         const heroImage = document.getElementById('heroFace');
 
+        // Hover swap
         imageSection.addEventListener('mouseenter', () => {
-            heroImage.src = '/images/LightOrange.jpg'; 
+            heroImage.src = '/images/LightOrange.jpg';
         });
 
         imageSection.addEventListener('mouseleave', () => {
-            heroImage.src = '/images/PicDarkOrange.jpg'; 
+            heroImage.src = '/images/PicDarkOrange.jpg';
         });
+
+        // ✅ Click to navigate
+        imageSection.addEventListener('click', () => {
+            window.location.href = '/journey';
+        });
+
+        // Optional: make it feel like a clickable element
+        imageSection.style.cursor = 'pointer';
     </script>
+
 
 
 

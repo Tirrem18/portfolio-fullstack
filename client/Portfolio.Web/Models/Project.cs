@@ -1,4 +1,4 @@
-﻿namespace Portfolio.Web.Pages.Models
+﻿namespace Portfolio.Web.Models
 {
     // Models/Project.cs
     public class Project

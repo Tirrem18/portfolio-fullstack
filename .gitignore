@@ -48,11 +48,6 @@ tmp/
 *.nuget.props
 *.nuget.targets
 
-# wwwroot (scaffolded libraries)
-**/wwwroot/lib/
-**/wwwroot/js/
-!**/wwwroot/js/site.js
-
 
 # Publish
 publish/
@@ -149,3 +144,9 @@ MigrationBackup/
 
 # Ignore strong-name keys (security)
 # *.snk
+
+
+
+wwwroot/lib/
+/admin/Portfolio.Admin/wwwroot/lib
+/client/Portfolio.Web/wwwroot/lib

@@ -4,6 +4,7 @@
     ViewData["Title"] = "Home";
 }
 
+
 @section FullWidth {
     <div class="hero-wrapper">
         <div class="center-box">
@@ -42,44 +43,26 @@
         <div class="section-2-inner">
             <h2 class="section-2-title">Core Projects</h2>
             <div class="section-2-projects">
-               
             </div>
         </div>
     </div>
 
 
     <div class="section-3-wrapper section-3">
-        <div class="center-box">
-            <div class="split-box">
-                <!-- Orange box with summary -->
-                <div class="split-section box">
-                    <div class="devlog-entry">
-                        <div>
-                            <div class="label">Summary</div>
-                            <div>Improved layout logic for hero and project sections</div>
-                        </div>
-                        <div>
-                            <div class="label">Date</div>
-                            <div>25 July 2025</div>
-                        </div>
-                        <div>
-                            <div class="label">Description</div>
-                            <div>Refactored styles to support responsive scaling and implemented clamped typography across key elements.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right side content -->
-                <div class="split-section middle">
-                    <h2 style="font-size: clamp(1.5rem, 4vw, 2.5rem); margin-bottom: 1rem;">Daily Dev Logs</h2>
-                    <p style="font-size: clamp(1rem, 2vw, 1.25rem); max-width: 600px;">
-                        Since graduating, I’ve aimed to continue learning every day. One way I stay accountable is by keeping daily development logs. You can view the full archive by clicking the link below.
-                    </p>
-                    <a href="/devlogs" class="btn secondary-btn" style="margin-top: 1rem;">View All Logs</a>
-                </div>
+        <div class="left-box"></div>
+        <div class="right-box">
+            <div class="devlog-content">
+                <h2 class="devlog-title">Daily DevLogs</h2>
+                <p class="devlog-paragraph">
+                    Since graduation, I've wanted to grow consistently as a developer.
+                    Writing daily dev logs has helped me reflect, stay accountable, and keep learning — one day at a time.
+                </p>
+                <a class="view-all-link" href="/devlogs">View All Dev Logs</a>
             </div>
         </div>
     </div>
+
+
     <script type="module" src="/js/indexProjects.js"></script>
 
     <script>
@@ -95,7 +78,7 @@
             heroImage.src = '/images/PicDarkOrange.jpg';
         });
 
-        
+
         imageSection.addEventListener('click', () => {
             window.location.href = '/journey';
         });

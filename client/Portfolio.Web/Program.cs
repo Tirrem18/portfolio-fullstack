@@ -20,7 +20,7 @@ var options = new SupabaseOptions
 var supabase = new Supabase.Client(supabaseUrl, supabaseKey, options);
 await supabase.InitializeAsync();
 
-builder.Services.AddSingleton(supabase); // <-- Add this line
+builder.Services.AddSingleton(supabase);
 
 
 var app = builder.Build();

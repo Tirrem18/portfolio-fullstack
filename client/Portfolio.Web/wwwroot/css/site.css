@@ -3,8 +3,9 @@
   Now uses --view-height and --view-width for all viewport-based sizing.
 */
 @import url('./Index/hero.css');
-@import url('./Index/devlogs.css');
 @import url('./Index/projects.css');
+@import url('./Index/devlogs.css');
+
 /* Root variables and base font size */
 html {
     font-size: 14px;
@@ -84,7 +85,7 @@ nav.navbar {
     font-size: clamp(0.76rem, calc(var(--view-width) * 1), 1.25rem);
     border-radius: 8px;
     font-weight: 500;
-    transition: background 0.3s ease;
+    transition: background 0.1s ease;
 }
 
 .primary-btn {

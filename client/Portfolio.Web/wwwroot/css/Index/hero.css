@@ -1,15 +1,12 @@
-﻿    /* SECTION 1 - HERO SECTION */
-    .hero-wrapper
-
-{
+﻿/* HERO SECTION WRAPPER */
+.hero-wrapper {
     position: relative;
-    height: calc(var(--view-height) * 40);
+    height: calc(var(--view-height) * 40); /* Full viewport height scaling */
     background-color: #18232d;
     z-index: 0;
 }
 
-
-/* Center box within hero */
+/* Central container inside hero */
 .center-box {
     position: relative;
     margin: 0 auto;
@@ -21,24 +18,25 @@
     background-color: transparent;
 }
 
-/* Split layout inside hero */
+/* Layout for splitting hero into sections */
 .split-box {
     display: flex;
     width: 100%;
     height: 100%;
 }
 
-/* Core content sections */
+/* Base layout for each split section */
 .split-section {
     height: 100%;
 }
 
+    /* Filler side section to offset middle */
     .split-section.side-filler {
         flex: 0.5;
-        background-color: #18232d; /* Same as hero-wrapper */
+        background-color: #18232d;
     }
 
-
+    /* Central content area */
     .split-section.middle {
         flex: 2;
         background-color: #121824;
@@ -48,19 +46,19 @@
         position: relative;
     }
 
+    /* Image container on right side */
     .split-section.image {
         flex: 1;
         background-color: #121824;
         display: flex;
         align-items: center;
-        justify-content: flex-end; /* 👈 This glues the image to the far right */
+        justify-content: flex-end;
         padding-right: 0;
         border-top-right-radius: 25px;
         border-bottom-right-radius: 25px;
-        
     }
 
-/* Hero image inside image section */
+/* Wrapper for hero image */
 .hero-image {
     height: 100%;
     display: flex;
@@ -72,11 +70,10 @@
         height: 100%;
         width: auto;
         object-fit: cover;
-        border-radius: 0 16px 16px 0; /* Rounded corners only on the left side */
+        border-radius: 0 16px 16px 0; /* Round right corners */
     }
 
-
-/* Hero intro content */
+/* Content wrapper for intro text */
 .hero-intro-wrapper {
     max-width: 700px;
     padding-top: calc(var(--view-height) * 3);
@@ -90,12 +87,14 @@
     gap: 0rem;
 }
 
+/* Subheading / tagline */
 .hero-tagline {
-    font-size: clamp(0.6rem, calc(var(--view-width) * 1.23), 3.2rem);
+    font-size: clamp(0.9rem, calc(var(--view-width) * 1.23), 3.2rem);
     font-weight: 500;
     color: #ccc;
 }
 
+/* Main name or title */
 .hero-name {
     font-size: clamp(1.9rem, calc(var(--view-width) * 2.6), 3.2rem);
     font-weight: 600;
@@ -103,16 +102,17 @@
     max-width: calc(var(--view-width) * 25);
 }
 
+/* Roles or titles under name */
 .hero-roles {
     font-size: clamp(0.74rem, calc(var(--view-width) * 1.02), 3.2rem);
     font-weight: 300;
     color: #bbb;
 }
 
+/* Button group */
 .hero-buttons {
     display: flex;
     gap: calc(var(--view-width) * 1);
     flex-wrap: wrap;
     justify-content: center;
 }
-   

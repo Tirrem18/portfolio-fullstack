@@ -1,4 +1,5 @@
 ﻿@page
+@using Portfolio.Web.Models
 @model Portfolio.Web.Pages.IndexModel
 @{
     ViewData["Title"] = "Home";
@@ -49,13 +50,23 @@
 
 
     <div class="section-3-wrapper section-3">
-        <div class="left-box"></div>
+        <div class="left-box">
+            @if (Model.Logs.FirstOrDefault() is DevLog latestLog)
+            {
+                <div class="latest-log-content">
+                    <p class="latest-log-date">@latestLog.Date.ToString("MMMM dd, yyyy")</p>
+                    <p class="latest-log-summary">@latestLog.Summary</p>
+                    <p class="latest-log-description">@latestLog.Description</p>
+
+                </div>
+            }
+        </div>
         <div class="right-box">
             <div class="devlog-content">
                 <h2 class="devlog-title">Daily DevLogs</h2>
                 <p class="devlog-paragraph">
-                    Since graduation, I've wanted to grow consistently as a developer.
-                    Writing daily dev logs has helped me reflect, stay accountable, and keep learning — one day at a time.
+                    Since graduating, I’ve made it a priority to grow not just as a developer, but as a thinker and problem-solver.
+                    Keeping a daily dev log has become a way to pause, reflect, and track my progress.
                 </p>
                 <a class="view-all-link" href="/devlogs">View All Dev Logs</a>
             </div>

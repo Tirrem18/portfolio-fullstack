@@ -1,22 +1,53 @@
-﻿/* SECTION 3 */
+﻿/* SECTION 3 - DEVLOGS CONTAINER */
 .section-3-wrapper {
     display: flex;
-    height: calc(var(--view-height) * 40);
+    height: calc(var(--view-height) * 40); /* Responsive height */
     background-color: #18232d;
-    padding: calc(var(--view-height) * 5) calc(var(--view-width) * 15);
-    scroll-margin-top: 100px;
+    padding: calc(var(--view-height) * 5) calc(var(--view-width) * 15); /* Responsive padding */
+    scroll-margin-top: 100px; /* Offset for anchor scrolling */
     box-sizing: border-box;
     gap: 0;
 }
 
+/* LEFT PANEL - LATEST LOG */
 .left-box {
     width: 33.3333%;
     background-color: #c15f3d;
     height: 100%;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
+    overflow: auto; /* Enable scroll if content exceeds height */
 }
 
+.latest-log-content {
+    padding: calc(var(--view-height) * 2) calc(var(--view-width) * 2);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    height: 100%;
+    max-height: 100%;
+    box-sizing: border-box;
+    overflow-y: auto; /* Vertical scroll only */
+}
+
+.latest-log-date {
+    font-size: clamp(0.9rem, calc(var(--view-width) * 0.9), 1.2rem);
+    font-style: italic;
+    opacity: 0.85;
+}
+
+.latest-log-summary {
+    font-size: clamp(1rem, calc(var(--view-width) * 1.1), 1.5rem);
+    font-weight: 600;
+}
+
+.latest-log-description {
+    font-size: clamp(0.95rem, calc(var(--view-width) * 1), 1.3rem);
+    flex-grow: 1; /* Fills available vertical space */
+}
+
+/* RIGHT PANEL - DEVLOG SECTION */
 .right-box {
     width: 66.6667%;
     background-color: #121824;
@@ -24,36 +55,37 @@
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
     color: white;
-    padding: calc(var(--view-height) * 2.5) calc(var(--view-width) * 5);
+    padding: calc(var(--view-height) * 1.5) calc(var(--view-width) * 5);
     box-sizing: border-box;
 }
 
-/* Right content layout */
+/* Container for devlog text and link */
 .devlog-content {
     display: flex;
     flex-direction: column;
     height: 100%;
-    justify-content: space-between;
-    gap: calc(var(--view-height) * 1.5);
+    justify-content: space-between; /* Title, paragraph, and link spaced out */
 }
 
-/* Text and link styles */
+/* Title styling */
 .devlog-title {
-    font-size: calc(var(--view-width) * 2.4);
-    font-weight: 700;
+    font-size: clamp(1.9rem, calc(var(--view-width) * 2.6), 3.2rem);
+    font-weight: 600;
 }
 
+/* Paragraph/body text styling */
 .devlog-paragraph {
-    font-size: calc(var(--view-width) * 1.2);
-    line-height: 1.8;
+    font-size: clamp(1rem, calc(var(--view-width) * 1.23), 3.2rem);
+    line-height: 1.3;
     max-width: 90%;
     flex-grow: 1;
     display: flex;
-    align-items: center;
+    align-items: center; /* Vertically centers text */
 }
 
+/* Link to view all logs */
 .view-all-link {
-    font-size: calc(var(--view-width) * 1.1);
+    font-size: clamp(0.95rem, calc(var(--view-width) * 1.1), 1.5rem);
     font-weight: bold;
     text-decoration: none;
     color: white;
@@ -63,7 +95,7 @@
     padding: 0.25rem 0;
 }
 
-.view-all-link:hover {
-    color: #c15f3d;
-    border-bottom-color: #c15f3d;
-}
+    .view-all-link:hover {
+        color: #c15f3d;
+        border-bottom-color: #c15f3d;
+    }

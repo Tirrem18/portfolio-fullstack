@@ -148,5 +148,7 @@ MigrationBackup/
 
 
 wwwroot/lib/
+/admin/Portfolio.Admin/wwwroot/lib/bootstrap
+/admin/Portfolio.Admin/wwwroot/lib/jquery
 /admin/Portfolio.Admin/wwwroot/lib
 /client/Portfolio.Web/wwwroot/lib

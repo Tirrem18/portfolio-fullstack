@@ -1,0 +1,32 @@
+﻿/* FOOTER SECTION */
+.site-footer {
+    background-color: #18232d;
+    height: calc(var(--view-height) * 15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: white;
+    text-align: center;
+}
+
+.footer-content p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.2rem;
+}
+
+    .social-icons img {
+        height: 32px;
+        width: 32px;
+        transition: transform 0.2s ease;
+    }
+
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }

@@ -1,0 +1,104 @@
+﻿/* ========== ABOUT ME SECTION ========== */
+
+.about-wrapper {
+    background-color: #f4ede3;
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container for about section layout */
+.about-container {
+    max-width: 1200px;
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Text content block */
+.about-text {
+    flex: 1;
+    color: #121824;
+    min-width: 300px;
+}
+
+/* Section heading */
+.about-title {
+    font-size: clamp(2rem, 2.5vw, 2.5rem); /* Responsive heading */
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Introductory paragraph */
+.about-intro {
+    font-size: clamp(1rem, 1.3vw, 1.3rem);
+    margin-bottom: 1.5rem;
+}
+
+/* General paragraph styling */
+.about-paragraph {
+    font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Emphasis line */
+.about-callout {
+    font-size: clamp(1rem, 1.1vw, 1.1rem);
+    margin: 1.5rem 0;
+}
+
+/* Button group layout */
+.about-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Base button styling */
+.btn {
+    padding: 0.6rem 1.2rem;
+    font-size: clamp(0.9rem, 1vw, 1rem);
+    border-radius: 6px;
+    transition: background-color 0.2s ease-in-out;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Orange button */
+.tertiary-btn {
+    background-color: #c15f3d;
+    color: white;
+    border: none;
+}
+
+    .tertiary-btn:hover {
+        background-color: #ee8c4f;
+    }
+
+/* Outline button */
+.outline-btn {
+    background-color: transparent;
+    color: #121824;
+    border: 2px solid #121824;
+}
+
+    .outline-btn:hover {
+        background-color: #ddd;
+    }
+
+/* Photo container */
+.about-photo {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+}
+
+    /* Photo image styling */
+    .about-photo img {
+        max-width: 75%;
+        height: auto;
+        border-radius: 12px;
+    }

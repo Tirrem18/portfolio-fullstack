@@ -26,6 +26,7 @@
     width: 100%;
     box-sizing: border-box;
     overflow: hidden;
+
 }
 
 /* Individual project card */
@@ -41,6 +42,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: 0 12.5px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Responsive behavior: hide last card on medium screens */

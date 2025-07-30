@@ -53,7 +53,7 @@
             @if (Model.Logs.FirstOrDefault() is DevLog latestLog)
             {
                 <div class="latest-log-content">
-                    <p class="latest-log-date">@latestLog.Date.ToString("MMMM dd, yyyy")</p>
+                    <p class="latest-log-date">Most Recent Log - @latestLog.Date.ToString("MMMM dd, yyyy")</p>
                     <p class="latest-log-summary">@latestLog.Summary</p>
                     <p class="latest-log-description">@latestLog.Description</p>
 
@@ -78,10 +78,10 @@
             <div class="about-text">
                 <h2 class="about-title">About Me</h2>
                 <p class="about-intro">
-                    Hey — I’m Jacob, a full stack developer who loves turning complex problems into clean, thoughtful solutions.
+                    I’m Jacob, a full stack developer who loves turning complex problems into clean, thoughtful solutions.
                 </p>
                 <p class="about-paragraph">
-                    I’m from Billingham, a quiet little town near Middlesbrough (home of the legendary parmo). It’s where I went to school, college, and university — and where I went from building my first silly Scratch game to graduating with a degree in Software Engineering.
+                    I’m from Billingham, a quiet little town near Middlesbrough (home of the legendary parmo). It’s where I went to school, college, and university — and where I went from building my first Scratch game as a child, to graduating with a degree in Software Engineering recently.
                 </p>
                 <p class="about-paragraph">
                     For me, development isn’t just about making things work — it’s about how they feel. I’ve worked across web, mobile, and cloud platforms, always aiming for that sweet spot between structure and creativity.
@@ -101,17 +101,22 @@
         </div>
     </div>
 
-    <footer class="site-footer">
-        <div class="footer-content">
-            <p>Where to Find Me:</p>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/yourname" target="_blank"><img src="/icons/linkedin.svg" alt="LinkedIn" /></a>
-                <a href="https://github.com/yourusername" target="_blank"><img src="/icons/github.svg" alt="GitHub" /></a>
-                <a href="mailto:you@example.com"><img src="/icons/email.svg" alt="Email" /></a>
-            </div>
-        </div>
-    </footer>
-
+<footer class="custom-footer">
+    <div class="footer-blocks">
+        <a href="https://www.linkedin.com/in/jacobmerritt/" target="_blank" rel="noopener noreferrer" class="footer-tile">
+            LinkedIn
+        </a>
+        <a href="https://github.com/Tirrem18" target="_blank" rel="noopener noreferrer" class="footer-tile">
+            GitHub
+        </a>
+        <a href="/contact" class="footer-tile">
+            Email
+        </a>
+    </div>
+    <div class="footer-info">
+        <p class="footer-copy">&copy; 2025 Jacob Merritt. All rights reserved.</p>
+    </div>
+</footer>
 
     <script type="module" src="/js/indexProjects.js"></script>
 

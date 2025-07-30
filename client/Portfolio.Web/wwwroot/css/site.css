@@ -8,6 +8,8 @@
 @import url('./Index/aboutme.css');
 @import url('./Index/footer.css');
 
+@import url('./Journey/MyJourney.css');
+
 /* Root variables and base font size */
 html {
     font-size: 14px;
@@ -109,3 +111,10 @@ nav.navbar {
         background-color: rgba(255, 255, 255, 0.1);
     }
 
+body {
+    background-color: #18232d;
+}
+
+main {
+    background-color: transparent;
+}

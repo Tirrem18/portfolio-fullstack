@@ -12,10 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\css\Journey\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\js\Data\projectData.js" />
   </ItemGroup>
 

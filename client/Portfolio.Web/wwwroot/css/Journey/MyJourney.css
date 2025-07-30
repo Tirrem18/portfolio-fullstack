@@ -1,0 +1,17 @@
+﻿.journey-intro {
+    background-color: #18232d;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 10vh 1rem;
+}
+
+    .journey-intro h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .journey-intro p {
+        font-size: 1.2rem;
+        color: white;
+    }

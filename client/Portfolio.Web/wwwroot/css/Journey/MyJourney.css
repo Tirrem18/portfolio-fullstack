@@ -33,7 +33,7 @@
 }
 
 .journey-card {
-    flex: 1 1 clamp(250px, 25vw, 400px); /* Responsive width */
+    flex: 1 1 clamp(250px, 30vw, 500px); /* Responsive width */
     height: clamp(300px, 50vh, 500px); /* Responsive height */
     background-color: #121824;
     border-radius: 16px;
@@ -52,7 +52,7 @@
     }
 
 .journey-banner {
-    height: clamp(120px, 20vh, 200px);
+    height: clamp(120px, 15vh, 200px);
     width: 100%;
     background-size: cover;
     background-position: center;

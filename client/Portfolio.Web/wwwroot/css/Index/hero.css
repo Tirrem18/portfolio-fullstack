@@ -1,7 +1,7 @@
 ﻿/* HERO SECTION WRAPPER */
 .hero-wrapper {
     position: relative;
-    height: calc(var(--view-height) * 40); /* Full viewport height scaling */
+    height: 40vh; /* Full viewport height scaling */
     background-color: #18232d;
     z-index: 0;
 }
@@ -76,8 +76,8 @@
 /* Content wrapper for intro text */
 .hero-intro-wrapper {
     max-width: 700px;
-    padding-top: calc(var(--view-height) * 3);
-    padding-left: clamp(1rem, calc(var(--view-width) * 5), 3rem);
+    padding-top: 3vh;
+    padding-left: clamp(1rem, 5vw, 3rem);
     color: white;
     display: flex;
     flex-direction: column;
@@ -89,22 +89,22 @@
 
 /* Subheading / tagline */
 .hero-tagline {
-    font-size: clamp(0.9rem, calc(var(--view-width) * 1.23), 3.2rem);
+    font-size: clamp(0.9rem, 1.23vw, 3.2rem);
     font-weight: 500;
     color: #ccc;
 }
 
 /* Main name or title */
 .hero-name {
-    font-size: clamp(1.9rem, calc(var(--view-width) * 2.6), 3.2rem);
+    font-size: clamp(1.9rem, 2.6vw, 3.2rem);
     font-weight: 600;
     margin: 0;
-    max-width: calc(var(--view-width) * 25);
+    max-width: 25vw;
 }
 
 /* Roles or titles under name */
 .hero-roles {
-    font-size: clamp(0.74rem, calc(var(--view-width) * 1.02), 3.2rem);
+    font-size: clamp(0.74rem, 1.02vw, 3.2rem);
     font-weight: 300;
     color: #bbb;
 }
@@ -112,7 +112,7 @@
 /* Button group */
 .hero-buttons {
     display: flex;
-    gap: calc(var(--view-width) * 1);
+    gap: 1vw;
     flex-wrap: wrap;
     justify-content: center;
 }

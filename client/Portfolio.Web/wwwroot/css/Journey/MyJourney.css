@@ -2,16 +2,77 @@
     background-color: #18232d;
     color: #f2f2f2;
     text-align: center;
-    padding: 10vh 1rem;
+    padding: 2.5vh 1rem;
 }
 
     .journey-intro h1 {
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
+        font-size: 4rem;
+        font-weight: 600;
+        margin-top: 2.5vh;
     }
 
     .journey-intro p {
         font-size: 1.2rem;
         color: white;
+        padding: 2vh 5vw;
+    }
+
+.journey-options {
+    padding: 3vh 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.journey-card-container {
+    display: flex;
+    gap: clamp(1rem, 3vw, 4rem); /* Responsive gap */
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.journey-card {
+    flex: 1 1 clamp(250px, 25vw, 400px); /* Responsive width */
+    height: clamp(300px, 50vh, 500px); /* Responsive height */
+    background-color: #121824;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+    padding-bottom: clamp(1rem, 1.5vh, 2rem);
+}
+
+    .journey-card:hover {
+        transform: translateY(-5px);
+    }
+
+.journey-banner {
+    height: clamp(120px, 20vh, 200px);
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.journey-content {
+    padding: clamp(1rem, 2vw, 2rem);
+}
+
+    .journey-content h3 {
+        font-size: clamp(1.5rem, 2vw, 3rem);
+        margin-bottom: clamp(0.5rem, 0.8vh, 1rem);
+        text-align: center;
+        color: white;
+    }
+
+    .journey-content p {
+        font-size: clamp(1rem, 1.4vw, 2rem);
+        text-align: center;
+        color: white;
+        line-height: 1.6;
     }

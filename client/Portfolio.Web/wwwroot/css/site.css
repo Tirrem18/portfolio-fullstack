@@ -1,6 +1,6 @@
 ﻿/*
   GLOBAL STYLESHEET - PORTFOLIO
-  Now uses --view-height and --view-width for all viewport-based sizing.
+  Now uses vh and vw for all viewport-based sizing.
 */
 @import url('./Index/hero.css');
 @import url('./Index/projects.css');
@@ -16,7 +16,6 @@ html {
     background-color: #18232d;
     position: relative;
     min-height: 100%;
-   
 }
 
 /* Custom scrollbar for WebKit browsers */
@@ -56,7 +55,7 @@ html {
 
 /* NAVIGATION BAR */
 nav.navbar {
-    height: calc(var(--view-height) * 5);
+    height: 5vh;
     padding: 0;
     background-color: #0c1319;
 }
@@ -78,15 +77,13 @@ nav.navbar {
         border-radius: 2px;
     }
 
-
-
 /* BUTTONS */
 .btn {
     text-decoration: none;
     /* Clamp padding: top/bottom, left/right */
-    padding: clamp(0.3rem, calc(var(--view-width) * 0.7), 0.8rem) clamp(0.6rem, calc(var(--view-width) * 0.75), 1.2rem);
+    padding: clamp(0.3rem, 0.7vw, 0.8rem) clamp(0.6rem, 0.75vw, 1.2rem);
     /* Clamp font size */
-    font-size: clamp(0.76rem, calc(var(--view-width) * 1), 1.25rem);
+    font-size: clamp(0.76rem, 1vw, 1.25rem);
     border-radius: 8px;
     font-weight: 500;
     transition: background 0.1s ease;

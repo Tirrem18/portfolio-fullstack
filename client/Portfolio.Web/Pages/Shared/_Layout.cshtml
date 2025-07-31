@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Portfolio.Web.styles.css" asp-append-version="true" />
+
 </head>
 <body>
     <header>
@@ -60,18 +61,6 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
-
-    <script>
-        function setViewportUnits() {
-            const vh = window.innerHeight * 0.01;
-            const vw = window.innerWidth * 0.01;
-            document.documentElement.style.setProperty('--view-height', `${vh}px`);
-            document.documentElement.style.setProperty('--view-width', `${vw}px`);
-        }
-
-        window.addEventListener('load', setViewportUnits);
-        window.addEventListener('resize', setViewportUnits);
-    </script>
 
 
     @await RenderSectionAsync("Scripts", required: false)

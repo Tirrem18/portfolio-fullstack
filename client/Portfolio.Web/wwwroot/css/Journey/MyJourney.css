@@ -52,12 +52,20 @@
     }
 
 .journey-banner {
-    height: clamp(120px, 15vh, 200px);
     width: 100%;
-    background-size: cover;
-    background-position: center;
-    color: white;
+    height: auto;
+    overflow: hidden;
 }
+
+    .journey-banner img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+    }
+
 
 .journey-content {
     padding: clamp(1rem, 2vw, 2rem);

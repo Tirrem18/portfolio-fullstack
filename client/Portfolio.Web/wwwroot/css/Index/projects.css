@@ -25,7 +25,7 @@
     padding: 0 10vw;
     width: 100%;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow: visible;
 }
 
 /* Individual project card */
@@ -43,6 +43,11 @@
     justify-content: space-between;
     box-shadow: 0 12.5px 12px rgba(0, 0, 0, 0.15);
 }
+
+    .project-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 20px rgba(0, 0, 0, 0.2); /* slightly deeper shadow */
+    }
 
 /* Responsive behavior: hide last card on medium screens */
 @media (max-width: 1200px) {

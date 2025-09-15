@@ -1,32 +1,44 @@
+using Microsoft.Extensions.Options;
 using Supabase;
+using Portfolio.Web.Config;
+using Portfolio.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Configure Supabase settings from appsettings.json and validate required values
+builder.Services.AddOptions<SupabaseConfig>()
+    .Bind(builder.Configuration.GetRequiredSection("Supabase"))
+    .Validate(cfg => !string.IsNullOrWhiteSpace(cfg.Url), "Supabase:Url is required.")
+    .Validate(cfg => !string.IsNullOrWhiteSpace(cfg.AnonKey), "Supabase:AnonKey is required.")
+    .ValidateOnStart();
+
 builder.Services.AddRazorPages();
+builder.Services.AddHealthChecks();
 
-// Load Supabase config from appsettings
-var supabaseUrl = builder.Configuration["Supabase:Url"];
-var supabaseKey = builder.Configuration["Supabase:AnonKey"];
-
-Console.WriteLine("SUPABASE_URL = " + supabaseUrl);
-Console.WriteLine("SUPABASE_ANON_KEY = " + supabaseKey);
-
-var options = new SupabaseOptions
+// Register a single Supabase client instance for dependency injection
+builder.Services.AddSingleton<Client>(sp =>
 {
-    AutoConnectRealtime = true
-};
+    var cfg = sp.GetRequiredService<IOptions<SupabaseConfig>>().Value;
 
-var supabase = new Supabase.Client(supabaseUrl, supabaseKey, options);
-await supabase.InitializeAsync();
+    var options = new SupabaseOptions
+    {
+        AutoConnectRealtime = false // Connect to realtime only when explicitly required
+    };
 
-builder.Services.AddSingleton(supabase);
+    return new Client(cfg.Url, cfg.AnonKey, options);
+});
 
+// Ensure Supabase is initialized at application startup
+builder.Services.AddHostedService<SupabaseInitializer>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+// Configure error handling: detailed pages in Development, user-friendly in Production
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+else
 {
     app.UseExceptionHandler("/Error");
     app.UseHsts();
@@ -38,7 +50,8 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
 
-app.MapRazorPages()
-   .WithStaticAssets();
+// Map Razor Pages and health check endpoints
+app.MapRazorPages().WithStaticAssets();
+app.MapHealthChecks("/healthz");
 
 app.Run();

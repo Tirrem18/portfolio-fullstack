@@ -101,7 +101,7 @@
         </div>
     </div>
 
-<footer class="custom-footer">
+<footer class="custom-index-footer">
     <div class="footer-blocks">
         <a href="https://www.linkedin.com/in/jacobmerritt/" target="_blank" rel="noopener noreferrer" class="footer-tile">
             LinkedIn
@@ -118,33 +118,7 @@
     </div>
 </footer>
 
-    <script type="module" src="/js/indexProjects.js"></script>
-
-    <script>
-        const imageSection = document.querySelector('.split-section.image');
-        const heroImage = document.getElementById('heroFace');
-
-        // Hover swap
-        imageSection.addEventListener('mouseenter', () => {
-            heroImage.src = '/images/LightOrange.jpg';
-        });
-
-        imageSection.addEventListener('mouseleave', () => {
-            heroImage.src = '/images/PicDarkOrange.jpg';
-        });
-
-
-                imageSection.addEventListener('click', () => {
-            const aboutSection = document.getElementById('aboutMeSection');
-            if (aboutSection) {
-                aboutSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-
-        imageSection.style.cursor = 'pointer';
-    </script>
-
-
-
+    <script type="module" src="/js/Index/indexProjects.js"></script>
+    <script src="~/js/Index/indexPicture.js" asp-append-version="true"></script>
 
 }
